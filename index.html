@@ -1,41 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Bootstrap CDN-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!--Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!--Custom CSS-->
   <link href="styles.css" rel="stylesheet">
   <title>Document</title>
 </head>
+
 <body>
   <div class="container-fluid">
     <div class="row h-100">
-
-      <!-- Column 1 -->
-      <div class="col-sm-12 col-md-12 col-lg-2 section1">
+      
+      <!-- Navbar -->
+      <div class="container-fluid d-flex flex-row justify-content-between align-items-center nav-bar">
         
-        <!--Hamburger Menu-->
-        <div class="dropdown">
+        <!-- Hamburger Menu -->
+        <div class="dropdown hamburger-dropdown">
           <button class="btn btn-secondary dropdown-toggle btn-lg" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-list"></i>
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Inbox</a></li>
-            <li><a class="dropdown-item" href="#">Sent</a></li>
-            <li><a class="dropdown-item" href="#">Favorites</a></li>
-            <li><a class="dropdown-item" href="#">Drafts</a></li>
-            <li><a class="dropdown-item" href="#">Trash</a></li>
+          <ul class="dropdown-menu dropdown-menu-dark hamburger-menu">
+            <div class="d-grid gap-2">
+              <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#emailModal">Compose</button>
+            </div>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Inbox</a></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Sent</a></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Favorites</a></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Spam</a></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Drafts</a></li>
+            <li><a class="dropdown-item hamburger-list-item" href="#">Trash</a></li>
           </ul>
         </div>
-        <i class="bi bi-envelope-heart"></i>
+        
+        <!-- Home/Logo Icon-->
+        <a class="heart-icon" href="#">
+          <i class="bi bi-envelope-heart"></i>
+        </a>
+
+        <!--Account Drop Menu-->
+        <div class="dropdown">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+            <i class="bi bi-person"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item account-list-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item account-list-item" href="#">Account</a></li>
+            <li><a class="dropdown-item account-list-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item account-list-item" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+    
       </div>
       
+      <!-- Email Compose Modal -->
+      <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title h5" id="emailModalLabel">New Message</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="ms-3 me-3">
+              <div class="mb-1">
+                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                <input type="text" class="form-control reply-text" id="recipient-name">
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="col-form-label">Subject:</label>
+                <input type="text" class="form-control reply-text" id="dubject">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control reply-text" rows="10" id="message-text"></textarea>
+              </div>
+            </form>
+            <div class="modal-footer d-flex justify-content-between">
+              <button type="button" class="btn btn-success modal-send-button" data-bs-dismiss="modal">Send</button>
+              <div>
+                <button type="button" class="btn btn-secondary" ><i class="bi bi-paperclip"></i></button>
+                <button type="button" class="btn btn-secondary" ><i class="bi bi-link"></i></button>
+                <button type="button" class="btn btn-secondary" ><i class="bi bi-three-dots-vertical"></i></button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-trash3"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 1 -->
+      <div class="col-sm-12 col-md-12 col-lg-2 section1">
+
+        <!-- Compose Button-->
+        <div class="d-grid col-6 mx-auto m-5">
+          <button type="button" class="btn btn-light compose-button" data-bs-toggle="modal" data-bs-target="#emailModal">Compose</button>
+        </div>
+
+        <!-- Divider-->
+        <div class="divider bg-dark"><hr></div>
+
+        <!-- List Menu -->
+        <div class="list-group mt-5">
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Inbox</a>
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Sent</a>
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Favorite</a>
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Spam</a>
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Drafts</a>
+          <a href="#" class="list-group-item list-group-item-action full-display-list">Trash</a>
+        </div>
+        
+      </div>
+
       <!-- Column 2 -->
-      <div class="col-sm-12 col-md-3 col-lg-4 section2">
+      <div class="col-sm-12 col-md-5 col-lg-4 overflow-auto section2">
 
         <!-- Search Bar -->
         <form class="d-flex search-area" role="search">
@@ -44,55 +128,120 @@
         </form>
 
         <!-- Email Boxes -->
-        
+        <div class="email-box d-flex flex-column row-gap-2">
+          <div class="card select-email clicked-email">
+            <div class="card-body">
+              <div class="d-flex justify-content-between card-heading">
+                <h5 class="card-title">Bay Valley Tech</h5>
+                <small class="date">Jul 22</small>
+              </div>
+              <h6 class="card-subtitle mb-1 text-body-secondary">From: bayvalleytech@bayvalleytech.com</h6>
+              <h6 class="card-subtitle mb-1 text-body-secondary">To: xxx@gmail.com</h6>
+              <p class="card-text">Lorem ipsum dolor sit amet, ... </p>
+              <button type="button" class="btn btn-light reply-button">Reply</button>
+              <button type="button" class="btn btn-light reply-button">Favorite</button>
+              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
+              <button type="button" class="btn btn-light reply-button">Delete</button>
+            </div>
+          </div>
+          <div class="card select-email">
+            <div class="card-body">
+              <div class="d-flex justify-content-between card-heading">
+                <h5 class="card-title">Amazn</h5>
+                <small class="date">Jul 20</small>
+              </div>
+              <h6 class="card-subtitle mb-1 text-body-secondary">From: purchase@amazn.com</h6>
+              <h6 class="card-subtitle mb-1 text-body-secondary">To: xxx@gmail.com</h6>
+              <p class="card-text">Your 10th purchase is on its way! ...</p>
+              <button type="button" class="btn btn-light reply-button">Reply</button>
+              <button type="button" class="btn btn-light reply-button">Favorite</button>
+              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
+              <button type="button" class="btn btn-light reply-button">Delete</button>
+            </div>
+          </div>
+          <div class="card select-email">
+            <div class="card-body">
+              <div class="d-flex justify-content-between card-heading">
+                <h5 class="card-title">Classroom 236</h5>
+                <small class="date">Jun 29</small>
+              </div>
+              <h6 class="card-subtitle mb-1 text-body-secondary">From: teacher@bayvalleytech.com</h6>
+              <h6 class="card-subtitle mb-1 text-body-secondary">To: xxx@gmail.com</h6>
+              <p class="card-text">Your assignment is due tomorrow ... </p>
+              <button type="button" class="btn btn-light reply-button">Reply</button>
+              <button type="button" class="btn btn-light reply-button">Favorite</button>
+              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
+              <button type="button" class="btn btn-light reply-button">Delete</button>
+            </div>
+          </div>
+          <div class="card select-email">
+            <div class="card-body">
+              <div class="d-flex justify-content-between card-heading">
+                <h5 class="card-title">50% OFF!!</h5>
+                <small class="date">Jun 16</small>
+              </div>
+              <h6 class="card-subtitle mb-1 text-body-secondary">From: gimmemoney@store.com</h6>
+              <h6 class="card-subtitle mb-1 text-body-secondary">To: xxx@gmail.com</h6>
+              <p class="card-text">Great deals only this weekend! ... </p>
+              <button type="button" class="btn btn-light reply-button">Reply</button>
+              <button type="button" class="btn btn-light reply-button">Favorite</button>
+              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
+              <button type="button" class="btn btn-light reply-button">Delete</button>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Column 3 -->
-      <div class="col d-none d-md-block col-md-9 col-lg-6 section3">
-        column 3
-      </div>
-      
-    </div>
-  </div>  
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
-</body>
-</html>
+      <div class="col d-none d-md-block col-md-7 col-lg-6 overflow-auto section3">
+        
+        <!--Email Display-->
+        <div class="email-display">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between card-heading">
+                <h4 class="card-title">Bay Valley Tech</h4>
+                <h6 class="date">Jul 22</h6>
+              </div>
+              <h6 class="card-subtitle mb-1 text-body-secondary">From: bayvalleytech@bayvalleytech.com</h6>
+              <h6 class="card-subtitle mb-3 text-body-secondary">To: xxx@gmail.com</h6>
+              <p class="card-text p-3 email-display-text">Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+                Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+              <button type="button" class="btn btn-light reply-button mb-3" data-bs-toggle="collapse" data-bs-target="#reply-collapse" aria-expanded="false" aria-controls="reply-collapse">Reply</button> 
+              <button type="button" class="btn btn-light reply-button mb-3">Favorite</button>
+              <button type="button" class="btn btn-light reply-button mb-3">Mark As Read</button>
+              <button type="button" class="btn btn-light reply-button mb-3">Delete</button>
+              <div class="collapse" id="reply-collapse">
+                <textarea class="form-control reply-text mb-2" rows="10"></textarea>
+                <div class="d-flex justify-content-between">
+                  <button type="button" class="btn btn-light reply-button">Send</button>
+                  <div>
+                    <button type="button" class="btn btn-secondary" ><i class="bi bi-paperclip"></i></button>
+                    <button type="button" class="btn btn-secondary" ><i class="bi bi-link"></i></button>
+                    <button type="button" class="btn btn-secondary" ><i class="bi bi-three-dots-vertical"></i></button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-trash3"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
+        </div>
 
-<!--
-  <div class="container-fluid email-box">
-          <div class="card" style="width: 85vw;">
-            <div class="card-body">
-              <h5 class="card-title" style="background-color: aliceblue;">Bay Valley Tech</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Cohort - 236</h6>
-              <p class="card-text">Important information. </p>
-              <button type="button" class="btn btn-light reply-button">Reply</button>
-              <button type="button" class="btn btn-light reply-button">Favorite</button>
-              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
-              <button type="button" class="btn btn-light reply-button">Delete</button>
-            </div>
-          </div>
-          <div class="card" style="width: 85vw;">
-            <div class="card-body">
-              <h5 class="card-title" style="background-color: aliceblue;">Google Classroom</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Cohort - 236</h6>
-              <p class="card-text">Important information. </p>
-              <button type="button" class="btn btn-light reply-button">Reply</button>
-              <button type="button" class="btn btn-light reply-button">Favorite</button>
-              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
-              <button type="button" class="btn btn-light reply-button">Delete</button>
-            </div>
-          <div class="card" style="width: 85vw;">
-            <div class="card-body">
-              <h5 class="card-title" style="background-color: aliceblue;">Bay Valley Tech</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Cohort - 236</h6>
-              <p class="card-text">Important information. </p>
-              <button type="button" class="btn btn-light reply-button">Reply</button>
-              <button type="button" class="btn btn-light reply-button">Favorite</button>
-              <button type="button" class="btn btn-light reply-button">Mark As Read</button>
-              <button type="button" class="btn btn-light reply-button">Delete</button>
-            </div>
-          </div>
-            </div>
-          </div>
--->
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous">
+  </script>
+  
+</body>
+
+</html>

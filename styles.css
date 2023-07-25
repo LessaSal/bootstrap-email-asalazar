@@ -5,53 +5,105 @@ html, body {
 
 @media only screen and (min-width:0px) and (max-width:768px) {
   .section1 {
-    height: 10vh;
+    display: none;
   }
   .section2 {
-    height: 90vh;
+    height: 92vh;
+  }
+  .list-group {
+    display: none;
+  }
+  .compose-button {
+    display: none;
   }
 }
 
 @media only screen and (min-width:768px) and (max-width:992px) {
   .section1 {
-    height: 10vh;
+    display: none;
   }
   .section2, .section3 {
-    height: 90vh;
+    height: 92vh;
   } 
-  .dropdown {
+  .list-group {
     display: none;
-  } 
+  }
+  .compose-button {
+    display: none;
+  }
 }
 
 @media only screen and (min-width:992px) {
   .section1, .section2, .section3 {
-    height: 100vh;
+    height: 92vh;
   } 
-  .dropdown {
+  .hamburger-dropdown {
     display: none;
-  } 
+  }
 }
 
-
-.section1 {
+.nav-bar {
+  height: 8vh;
   background-color: rgb(96, 141, 126);
 }
 
-.dropdown-menu {
-  width: 94vw;
+.account-list-item:active {
+  background-color: rgb(141, 199, 180);
 }
 
-.dropdown-item {
+.modal-send-button {
+  background-color: rgb(62, 117, 100);
+}
+
+.modal-send-button:hover {
+  background-color: rgb(141, 199, 180);
+}
+
+.section1 {
+  background-color: rgb(62, 117, 100);
+}
+
+.hamburger-menu {
+  width: 25vw;
+}
+
+.hamburger-list-item {
   height: 5vh;
 }
 
+.hamburger-list-item:active {
+  background-color: rgb(141, 199, 180);
+  border: 1px solid rgb(28, 68, 55);
+}
+
 .bi-envelope-heart {
-  display: flex;
-  justify-content: center;
-  font-size: 80px;
+  font-size: 7vh;
   color: aliceblue;
-  margin-top: 5px;
+}
+
+.bi-envelope-heart:hover {
+  color: rgb(246, 251, 255);
+}
+
+.compose-button {
+  box-shadow: 2px 2px 15px #3b4044;
+}
+
+.compose-button:hover {
+  background-color: aliceblue;
+  box-shadow: 1px 2px #b8c4cc;
+}
+
+.modal-header {
+  background-color: rgb(241, 248, 246);
+}
+
+.full-display-list {
+  background-color: rgb(240, 255, 254);
+}
+
+.full-display-list:hover {
+  background-color: rgb(141, 199, 180);
 }
 
 .section2 {
@@ -59,7 +111,7 @@ html, body {
 }
 
 .search-area {
-  transform: translateY(30px);
+  transform: translateY(20px);
 }
 
 .search-button {
@@ -76,13 +128,40 @@ html, body {
   background-color: rgb(240, 255, 254);
 }
 
-/*
 .email-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  row-gap: 15px;
-  transform: translateY(70px);
+  transform: translateY(50px);
 }
-*/
+
+.clicked-email {
+  background-color: rgb(236, 241, 240);
+  border: 2px solid rgb(109, 109, 109);
+  box-shadow: 1px 1px 20px rgb(28, 68, 55);
+}
+
+.select-email:hover {
+  background-color: rgb(237, 247, 243);
+  box-shadow: 1px 1px 10px #6C767D;
+}
+
+.email-display {
+  transform: translateY(50px);
+}
+
+.email-display-text {
+  background-color: rgb(241, 248, 246);
+  border: 1px solid rgb(141, 199, 180);
+  border-radius: 8px;
+} 
+
+.card-heading {
+  background-color: aliceblue;
+}
+
+.reply-text {
+  border: 2px solid rgb(141, 199, 180);
+}
+
+.reply-text:focus {
+  border: 2px solid rgb(141, 199, 180);
+  box-shadow: 1px 1px 10px rgb(141, 199, 180);
+}
